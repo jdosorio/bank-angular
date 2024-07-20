@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="search-container">
+    <input type="text" placeholder="Search..." name="filterTable" [(ngModel)]="filterTable"/>
+    <button (click)="goCreate()">Agregar</button>
+  </div>
+  <div class="container-content">
+    <div class="table-container">
+      <table class="product-table">
+        <thead>
+          <tr>
+            <th>Logo</th>
+            <th>Nombre del producto</th>
+            <th>Descripcion</th>
+            <th>Fecha de Liberación</th>
+            <th>Fecha de Revisión</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (product of paginatedProducts | filter:  filterTable; track $index) {
+            <tr>
+              <td><img [src]="product.logo" alt="Logo" class="logo-img" /></td>
+              <td>{{ product.name }}</td>
+              <td>{{ product.description }}</td>
+              <td>{{ product.date_release | date }}</td>
+              <td>{{ product.date_revision | date }}</td>
+              <td>
+                <div class="container-context">
+                  <button (click)="toggleMenu(product, $event)" class="context-button">⋮</button>
+                  @if (selectedProduct === product && isMenuVisible) {
+                    <div class="context-menu">
+                      <ul>
+                        <li><button (click)="editProduct(product)">Editar</button></li>
+                        <li><button (click)="showModal(product)">Eliminar</button></li>
+                      </ul>
+                    </div>
+                  }
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <div class="pagination">
+      <div class="pagination-counters">
+        <span>{{ (products | filter:  filterTable).length }} Resultados</span>
+        <select id="recordsPerPage" [(ngModel)]="recordsPerPage">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+        </select>
+      </div>
+      <app-pagination
+        [totalItems]="products.length"
+        [itemsPerPage]="recordsPerPage()"
+        (pageChange)="onPageChange($event)"
+      ></app-pagination>
+    </div>
+  </div>
+
+  <app-popup (confirmed)="deleteProduct()" message="{{selectedProduct?.name}}"></app-popup>
+
+</div>

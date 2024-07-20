@@ -1,0 +1,71 @@
+<main>
+<div class="form-container">
+  <h1>Formulario de Registro</h1>
+  <hr>
+  <form [formGroup]="productForm" (ngSubmit)="saveProduct()" class="form">
+    <div class="form-group">
+      <label for="id">ID</label>
+      <input id="id" class="form-control" formControlName="id">
+      @if(productForm.get('id')?.invalid && (productForm.get('id')?.dirty || productForm.get('id')?.touched)){
+        <div>
+          @if(productForm.get('id')?.errors?.['required']){<small class="text-danger">ID es obligatorio!</small>}
+          @if(productForm.get('id')?.errors?.['minlength']){<small class="text-danger">ID debe tener al menos 3 caracteres!</small>}
+          @if(productForm.get('id')?.errors?.['maxlength']){<small class="text-danger">ID no puede tener mas de 10 caracteres!</small>}
+          @if(productForm.get('id')?.errors?.['uniqueId']){<small class="text-danger">ID no valido!</small>}
+        </div>
+      }
+    </div>
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input id="name" class="form-control" formControlName="name">
+      @if(productForm.get('name')?.invalid && (productForm.get('name')?.dirty || productForm.get('name')?.touched)){
+        <div>
+          @if(productForm.get('name')?.errors?.['required']){<small class="text-danger">Nombre es obligatorio!</small>}
+          @if(productForm.get('name')?.errors?.['minlength']){<small class="text-danger">Nombre debe tener al menos 5 caracteres!</small>}
+          @if(productForm.get('name')?.errors?.['maxlength']){<small class="text-danger">Nombre no puede tener mas de 100 caracteres!</small>}
+        </div>
+      }
+    </div>
+    <div class="form-group">
+      <label for="description">Descripcion</label>
+      <input type="text" id="description" class="form-control" formControlName="description">
+      @if(productForm.get('description')?.invalid && (productForm.get('description')?.dirty || productForm.get('description')?.touched)){
+        <div>
+          @if(productForm.get('description')?.errors?.['required']){<small class="text-danger">Descripcion es obligatorio!</small>}
+          @if(productForm.get('description')?.errors?.['minlength']){<small class="text-danger">Descripcion debe tener al menos 10 caracteres!</small>}
+          @if(productForm.get('description')?.errors?.['maxlength']){<small class="text-danger">Descripcion no puede tener mas de 200 caracteres!</small>}
+        </div>
+      }
+    </div>
+    <div class="form-group">
+      <label for="logo">Logo</label>
+      <input id="logo" type="text" class="form-control" formControlName="logo">
+      @if(productForm.get('logo')?.invalid && (productForm.get('logo')?.dirty || productForm.get('logo')?.touched)){
+        <div>
+          @if(productForm.get('logo')?.errors?.['required']){<small class="text-danger">Logo es obligatorio!</small>}
+        </div>
+      }
+    </div>
+    <div class="form-group">
+      <label for="date_release">Fecha Liberación</label>
+      <input id="date_release" type="date" class="form-control" formControlName="date_release" (change)="updateReviewDate(productForm.value.date_release)">
+      @if(productForm.get('date_release')?.invalid && (productForm.get('date_release')?.dirty || productForm.get('date_release')?.touched)){
+        <div>
+          @if(productForm.get('date_release')?.errors?.['required']){<small class="text-danger">Fecha Liberacion es obligatorio!</small>}
+          @if(productForm.get('date_release')?.errors?.['invalidReleaseDate']){<small class="text-danger">Fecha Revision debe ser mayor o igual a la fecha de hoy!</small>}
+        </div>
+      }
+    </div>
+    <div class="form-group">
+      <label for="date_revision">Fecha Revision</label>
+      <input id="date_revision" type="date" class="form-control" formControlName="date_revision">
+    </div>
+    <div class="form-actions">
+      @if (mode === 'create') {
+        <button type="button" (click)="cleanForm()" class="btn btn-reset">Reiniciar</button>
+      }
+      <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid && mode !== 'edit'">Enviar</button>
+    </div>
+  </form>
+</div>
+</main>

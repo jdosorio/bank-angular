@@ -1,0 +1,167 @@
+/* main.component.css */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.search-container input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 30%;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  min-width: 600px; /* Ajusta este valor según el ancho mínimo que quieras para la tabla */
+}
+
+.product-table th,
+.product-table td {
+  padding: 20px 10px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.product-table th {
+  background-color: #f9fafc;
+}
+
+.product-table th:first-child,
+
+.product-table td:first-child,
+.product-table th:first-child {
+  text-align: center;
+}
+
+.product-table td:last-child {
+  text-align: right;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination select {
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.context-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  white-space: nowrap;
+  transform: translateX(-80%);
+}
+
+.context-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.context-menu li {
+  padding: 8px 16px; /* Espaciado dentro de cada elemento del menú */
+}
+
+.context-menu li button {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.context-menu li button:hover {
+  background-color: #f0f0f0; /* Color de fondo al pasar el ratón */
+}
+
+.container-content{
+  padding: 20px;
+  background-color: #fff;
+}
+
+.context-button{
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.container-context{
+  position: relative;
+  display: inline-block;
+}
+
+.pagination-counters{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+  }
+
+  .search-container input {
+    width: initial;
+    margin-bottom: 10px;
+  }
+
+  .search-container button {
+    width: 100%;
+  }
+
+  .pagination {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pagination select {
+    margin-top: 10px;
+  }
+
+  .pagination-counters{
+    width: 100%;
+  }
+
+  app-pagination{
+    width: 100%;
+  }
+}

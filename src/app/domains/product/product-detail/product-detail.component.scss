@@ -1,0 +1,97 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.form{
+  padding: 0 7% 7% 7%;
+}
+
+.form-container {
+  background-color: white;
+
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 600px;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 15px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group small.error {
+  color: red;
+  display: none; /* Cambiar a block para mostrar el mensaje de error */
+}
+
+.form-actions {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  margin-top: 5%;
+}
+
+.form-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-actions button[type="reset"] {
+  background-color: #e0e0e0;
+}
+
+.form-actions button[type="submit"] {
+  background-color: #fdd835;
+}
+
+.text-danger{
+  color: red;
+}
+
+.btn-reset{
+  background-color: #eaecf2;
+}
+
+h1{
+  text-align: center;
+}
+
+.btn-primary:disabled {
+  background-color: #c8d6e5!important;
+  color: #fff;
+  cursor: not-allowed!important;
+}

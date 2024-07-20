@@ -1,0 +1,14 @@
+@if (isVisible) {
+  <div class="modal" (click)="onBackgroundClick($event)">
+    <div class="modal-content" (click)="stopPropagation($event)">
+      <div class="modal-body">
+        ¿Estás seguro de que deseas eliminar el producto {{ message }}?
+      </div>
+      <hr>
+      <div class="modal-footer">
+        <button class="button-cancel" (click)="close()">Cancelar</button>
+        <button (click)="confirmDelete()">Confirmar</button>
+      </div>
+    </div>
+  </div>
+}
