@@ -1,27 +1,25 @@
 # BankAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.3.
+Prueba tecnica generada con Angular en su version 17.1.3.
 
-## Development server
+# Instalar Dependencias
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Correr `npm i`
 
-## Code scaffolding
+## Correr proyecto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Correr `npm run start` 
 
-## Build
+## Construir Proyecto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Correr `ng build`
 
-## Running unit tests
+## Correr test unitarios
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Correr `npm test`.
 
-## Running end-to-end tests
+## Correr test unitarios (Coverage_
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Correr `npm run test:coverage`.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
