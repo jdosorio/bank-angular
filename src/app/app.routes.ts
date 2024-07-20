@@ -3,6 +3,7 @@ import { TableComponent } from './domains/product/product-list/product-list.comp
 import { ProductDetailComponent } from './domains/product/product-detail/product-detail.component';
 
 export const routes: Routes = [
+  { path: '', component: TableComponent },
   { path: 'products', component: TableComponent },
   { path: 'product/:mode/:id', component: ProductDetailComponent },
   { path: 'product/:mode', component: ProductDetailComponent },
